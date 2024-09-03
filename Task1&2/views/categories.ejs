@@ -1,0 +1,17 @@
+<h1>Categories</h1>
+<form action="/categories" method="POST">
+    <input type="text" name="name" placeholder="Category Name">
+    <select name="parentId">
+        <option value="">No Parent</option>
+        <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+        <% }) %>
+    </select>
+    <button type="submit">Add Category</button>
+</form>
+
+<ul>
+    <% categories.forEach(category => { %>
+        <li><%= category.name %></li>
+    <% }) %>
+</ul>

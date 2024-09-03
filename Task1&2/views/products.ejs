@@ -1,0 +1,30 @@
+<h1>Products</h1>
+<form action="/products" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Title">
+    <input type="number" name="qty" placeholder="Quantity">
+    <input type="text" name="color" placeholder="Color">
+    <input type="text" name="size" placeholder="Size">
+    <textarea name="description" placeholder="Description"></textarea>
+    <input type="number" name="amount" placeholder="Amount">
+    <input type="file" name="image">
+    <select name="categoryId">
+        <% if (categories && categories.length) { %>
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
+        <% } else { %>
+            <option disabled>No categories available</option>
+        <% } %>
+    </select>
+    <button type="submit">Add Product</button>
+</form>
+
+<ul>
+    <% if (products && products.length) { %>
+        <% products.forEach(product => { %>
+            <li><%= product.title %> - <%= product.amount %></li>
+        <% }) %>
+    <% } else { %>
+        <li>No products available</li>
+    <% } %>
+</ul>

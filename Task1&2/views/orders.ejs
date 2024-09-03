@@ -1,0 +1,8 @@
+<h1>Orders</h1>
+<ul>
+    <% orders.forEach(order => { %>
+        <li>
+            <a href="/admin/orders/<%= order.id %>">Order #<%= order.id %></a> - <%= order.status %>
+        </li>
+    <% }) %>
+</ul>

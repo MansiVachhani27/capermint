@@ -1,0 +1,13 @@
+<h1>Order Details</h1>
+<p>Billing Address: <%= order.billingAddress %></p>
+<p>Delivery Address: <%= order.deliveryAddress %></p>
+<form action="/admin/orders/<%= order.id %>" method="POST">
+    <select name="status">
+        <option value="pending" <%= order.status === 'pending' ? 'selected' : '' %>>Pending</option>
+        <option value="accepted" <%= order.status === 'accepted' ? 'selected' : '' %>>Accepted</option>
+        <option value="shipped" <%= order.status === 'shipped' ? 'selected' : '' %>>Shipped</option>
+        <option value="out for delivery" <%= order.status === 'out for delivery' ? 'selected' : '' %>>Out for Delivery</option>
+        <option value="delivered" <%= order.status === 'delivered' ? 'selected' : '' %>>Delivered</option>
+    </select>
+    <button type="submit">Update Status</button>
+</form>
